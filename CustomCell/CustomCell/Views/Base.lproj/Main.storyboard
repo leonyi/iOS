@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Dk9-ee-PXK">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Custom Cells View Controller-->
+        <scene sceneID="c0O-Uy-fhn">
+            <objects>
+                <tableViewController id="Dk9-ee-PXK" customClass="CustomCellsViewController" customModule="CustomCell" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Xg2-g8-k88">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomCell" rowHeight="140" id="2aq-aM-66I" customClass="CustomCell" customModule="CustomCell" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="140"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2aq-aM-66I" id="nR2-IL-noD" customClass="CustomCell" customModule="CustomCell" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="139.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qsF-0Y-3VR">
+                                            <rect key="frame" x="317" y="55" width="42" height="30"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8zN-7G-Hsk">
+                                            <rect key="frame" x="16" y="55" width="46" height="30"/>
+                                            <state key="normal" title="Button"/>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="8zN-7G-Hsk" secondAttribute="bottom" constant="44" id="0zV-51-YDd"/>
+                                        <constraint firstItem="8zN-7G-Hsk" firstAttribute="top" secondItem="nR2-IL-noD" secondAttribute="topMargin" constant="44" id="46c-xR-18t"/>
+                                        <constraint firstItem="8zN-7G-Hsk" firstAttribute="leading" secondItem="nR2-IL-noD" secondAttribute="leadingMargin" id="BY4-l0-aWL"/>
+                                        <constraint firstItem="qsF-0Y-3VR" firstAttribute="top" secondItem="nR2-IL-noD" secondAttribute="topMargin" constant="44" id="JjO-iz-Y9x"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="qsF-0Y-3VR" secondAttribute="bottom" constant="44" id="PCq-Kx-1mh"/>
+                                        <constraint firstItem="qsF-0Y-3VR" firstAttribute="leading" secondItem="8zN-7G-Hsk" secondAttribute="trailing" constant="255" id="mgC-jE-ZTX"/>
+                                        <constraint firstItem="qsF-0Y-3VR" firstAttribute="trailing" secondItem="nR2-IL-noD" secondAttribute="trailingMargin" id="yhX-Zt-Bfz"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="leftButton" destination="8zN-7G-Hsk" id="tA9-Cq-BNx"/>
+                                    <outlet property="rightLabel" destination="qsF-0Y-3VR" id="gmS-5I-fIW"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Dk9-ee-PXK" id="gl1-RX-43E"/>
+                            <outlet property="delegate" destination="Dk9-ee-PXK" id="Pha-tl-lzF"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="09G-Ro-Zo3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="976.79999999999995" y="117.39130434782609"/>
+        </scene>
+    </scenes>
+</document>

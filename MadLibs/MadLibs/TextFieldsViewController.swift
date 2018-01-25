@@ -8,6 +8,7 @@
 
 import UIKit
 
+// Setting up the delegate to send the information to the main VC.
 // Should this be in a separate delegate file?
 protocol  TextFieldsViewControllerDelegate {
     func sendmadLib(madlibString: String)
@@ -46,8 +47,8 @@ class TextFieldsViewController: UIViewController {
         let madlibString = generateMadLib(text1: adj!, text2: verb1!, text3: noun!, text4: verb2!)
     
         performSegue(withIdentifier: "unwindToMainViewController", sender: self)
-        delegate?.sendmadLib(madlibString: madlibString )
         delegate?.submitButtonPressed(by: self)
+        delegate?.sendmadLib(madlibString: madlibString )
     }
     
 
