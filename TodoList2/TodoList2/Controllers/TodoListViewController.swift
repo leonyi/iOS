@@ -67,7 +67,7 @@ class TodoListViewController: UITableViewController, AddItemViewControllerDelega
         cell.itemNote?.text = item.note
         
         // value = condition ? valueIfTrue : valueIfFalse
-        cell.accessoryType = item.done ? .checkmark : .none
+        cell.accessoryType = item.done ? .detailDisclosureButton : .none
         
         return cell
     }
