@@ -12,7 +12,6 @@ import CoreData
 class EventViewController: UITableViewController, AddEventViewControllerDelegate {
     // Initializing the new item array
     let sectionsArray = ["Incomplete", "Complete"]
-//    var data = [Item]()
     var incompleteArray = [Item]()
     var completeArray = [Item]()
     
@@ -44,7 +43,6 @@ class EventViewController: UITableViewController, AddEventViewControllerDelegate
         addItemVC.delegate = self
         
         if sender is IndexPath {
-            print("Inside toEditItem segue!")
             let navigationVC = segue.destination as! UINavigationController
             let addItemVC = navigationVC.topViewController as! AddEventViewController
             addItemVC.delegate = self
@@ -65,11 +63,15 @@ class EventViewController: UITableViewController, AddEventViewControllerDelegate
         performSegue(withIdentifier: "toAddItemView", sender: self)
     }
     
+    // Edit button takes us to the AddItem page to edit an existing item.
+    //  @IBAction func editButtonPressed(_ sender: UIButton) {
+    //        print("")
+    //        performSegue(withIdentifier: "toAddItemView", sender: self)
+    //    }
     
-    // Edit accessory button takes us to AddItem page to edit.
+     // Edit accessory button takes us to AddItem page to edit.
     override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
-        performSegue(withIdentifier: "toAddItemView", sender: indexPath)
-
+            performSegue(withIdentifier: "toAddItemView", sender: indexPath)
     }
     
 
@@ -113,7 +115,6 @@ class EventViewController: UITableViewController, AddEventViewControllerDelegate
                 construnctCell(item: item, cell: cell)
             }
         } else {
-                
                 if completeArray.count > 0 {
                     let item = completeArray[indexPath.row]
                     construnctCell(item: item, cell: cell)
@@ -124,7 +125,7 @@ class EventViewController: UITableViewController, AddEventViewControllerDelegate
     }
 
     
-    // MARK: - TableView Delegate - Populating the incomplet and complete item arrays.
+    // MARK: - TableView Delegate - Populating the incomplete and complete item arrays.
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
             incompleteArray[indexPath.row].done = !incompleteArray[indexPath.row].done
@@ -213,17 +214,17 @@ class EventViewController: UITableViewController, AddEventViewControllerDelegate
             request.predicate = NSPredicate(format: "done == %@", NSNumber(value:false))
             request.sortDescriptors = [NSSortDescriptor(key: "deadline", ascending: true)]
             incompleteArray = try context.fetch(request)
-        
+            self.tableView.reloadData()
+
             // Populating the completed items array
             request.predicate = NSPredicate(format: "done == %@", NSNumber(value:true))
             request.sortDescriptors = [NSSortDescriptor(key: "deadline", ascending: true)]
             completeArray = try context.fetch(request)
-            
+            self.tableView.reloadData()
+
         } catch {
             print("Error fetching data from context: \(error)")
         }
-        
-        self.tableView.reloadData()
         
     }
     
